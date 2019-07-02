@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+# https://packaging.python.org/tutorials/packaging-projects/
+
+# PYPI_REPOSITORY_URL=https://test.pypi.org/legacy/
+PYPI_REPOSITORY_URL=https://upload.pypi.org/legacy/
+
+python3 -m pip install --user --upgrade setuptools wheel twine
+rm -rf dist ./*.egg-info build
+python3 setup.py sdist bdist_wheel
+python3 -m twine upload --repository-url $PYPI_REPOSITORY_URL dist/*
+rm -rf dist ./*.egg-info build
