@@ -210,7 +210,7 @@ def add_password_requirement(pw, alphabet, regex, n):
         k = max(n - len(matches), 0)
         # Make a list of fields to change (must be in positions which are NOT
         # matches for regex)
-        change = RG.sample(set(range(len(pw))) - set(matches), k)
+        change = RG.sample(list(set(range(len(pw))) - set(matches)), k)
         # Make the replacements
         for i in change:
             pw = pw[:i] + RG.choice(alphabet) + pw[i + 1:]

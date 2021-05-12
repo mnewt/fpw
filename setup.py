@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="fpw",
-    version="0.5.0",
+    version="0.6.0",
     author="Matthew Sojourner Newton",
     author_email="matt@mnewton.com",
     description="Fun Password Generator",
