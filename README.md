@@ -4,8 +4,6 @@ A password generator that attempts to generate random passwords in a cryptograph
 
 By default, `fpw` generates completely random passwords using all of the letters, numbers, and symbols that are easily typed on an English keyboard. To support insecure systems, you can specify required character groups. To support insecure humans, you can generate pronounceable passwords. To break things, you can generate passwords from a large unicode character set.
 
-Although `fpw` is mainly focused on a command line interface, 
-
 # Usage
 
 ```
