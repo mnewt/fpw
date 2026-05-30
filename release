@@ -1,12 +1,24 @@
 #!/usr/bin/env sh
 
-# https://packaging.python.org/tutorials/packaging-projects/
+# https://packaging.python.org/en/latest/tutorials/packaging-projects/
 
-# PYPI_REPOSITORY_URL=https://test.pypi.org/legacy/
-PYPI_REPOSITORY_URL=https://upload.pypi.org/legacy/
+PYPI_REPOSITORY_URL=https://test.pypi.org/legacy/
+# PYPI_REPOSITORY_URL=https://upload.pypi.org/legacy/
 
-python3 -m pip install --user --upgrade setuptools wheel twine
+set -e
+
+# Ensure up-to-date packaging tools
+# brew install python-build twine
+# python3 -m pip install --user --upgrade build twine
+
+# Clean previous build artifacts
 rm -rf dist ./*.egg-info build
-python3 setup.py sdist bdist_wheel
-python3 -m twine upload --repository-url $PYPI_REPOSITORY_URL dist/*
+
+# Build wheel and sdist via pyproject.toml
+python3 -m build
+
+# Upload to PyPI (or TestPyPI, if PYPI_REPOSITORY_URL is set accordingly)
+python3 -m twine upload --repository-url "$PYPI_REPOSITORY_URL" dist/*
+
+# Optionally clean again
 rm -rf dist ./*.egg-info build

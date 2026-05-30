@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fpw"
+version = "0.7.0"
+description = "Fun Password Generator"
+readme = { file = "README.md", content-type = "text/markdown" }
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.8"
+
+authors = [
+  { name = "Matthew Sojourner Newton", email = "matt@mnewton.com" },
+]
+
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/mnewt/fpw"
+
+[tool.setuptools]
+py-modules = []
+script-files = ["fpw"]
